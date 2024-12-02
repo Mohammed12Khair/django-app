@@ -19,5 +19,6 @@ from service.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('service/', index)
+    path('service/', index),
+    path('', index),
 ]
