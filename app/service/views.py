@@ -3,6 +3,7 @@ from django.http.response import JsonResponse
 
 import socket
 from datetime import datetime
+from .models import TableData
 
 # Create your views here.
 
@@ -13,3 +14,18 @@ def index(request) -> JsonResponse:
         "date": str(datetime.now())
     }
     return JsonResponse(data=response, safe=False)
+
+
+def formSave(request):
+    if request.method == "POST":
+        TableData(name=request.POST['name'],
+                  request_details=str(request.headers)).save()
+
+    data = TableData.objects.all()
+    return render(request,
+                  'service.html',
+                  {"data": data})
+
+    # if request.method == "POST":
+    #     name = request.POST['name']
+    #     print(request)

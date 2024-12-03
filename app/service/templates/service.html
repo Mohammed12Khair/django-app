@@ -1,0 +1,16 @@
+<form action="{% url 'Link' %}" method="POST">{% csrf_token %}
+    <input type="text" name="name">
+    <button type="submit">Click Me</button>
+</form>
+
+<table>
+
+
+    {% for i in data %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.request_details }}</td>
+    </tr>
+
+    {% endfor %}
+</table>

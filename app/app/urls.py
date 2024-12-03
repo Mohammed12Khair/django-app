@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from service.views import index
+from service.views import index, formSave
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('service/', index),
     path('', index),
+    path('formSave/', formSave, name="Link"),
 ]
