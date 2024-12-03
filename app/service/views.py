@@ -22,7 +22,7 @@ def formSave(request):
                   request_details=str(request.headers),
                   server=str(socket.gethostname())).save()
 
-    data = TableData.objects.all()
+    data = TableData.objects.all().order_by('-id')
     return render(request,
                   'service.html',
                   {"data": data})
