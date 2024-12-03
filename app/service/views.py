@@ -19,7 +19,8 @@ def index(request) -> JsonResponse:
 def formSave(request):
     if request.method == "POST":
         TableData(name=request.POST['name'],
-                  request_details=str(request.headers)).save()
+                  request_details=str(request.headers),
+                  server=str(socket.gethostname())).save()
 
     data = TableData.objects.all()
     return render(request,
