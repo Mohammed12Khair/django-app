@@ -10,6 +10,7 @@ from .models import TableData
 
 def index(request) -> JsonResponse:
     response = {
+        "version":"new Version",
         "server": socket.gethostname(),
         "date": str(datetime.now())
     }
