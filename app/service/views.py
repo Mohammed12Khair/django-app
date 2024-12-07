@@ -31,3 +31,9 @@ def formSave(request):
     # if request.method == "POST":
     #     name = request.POST['name']
     #     print(request)
+
+def health(request):
+    response={
+        "data":"value"
+    }
+    return JsonResponse(data=response,status=404)
